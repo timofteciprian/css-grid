@@ -1,10 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
 
+body html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
   display: grid;
-  grid-template-rows: 51px 30%;
+  grid-template-rows: auto 50px;
+  grid-template-columns: 12% auto;
+  grid-template-areas:
+    "sidebar right"
+    "footer footer";
 }
 a {
   text-decoration: none;
@@ -18,7 +26,9 @@ ul li {
 }
 ul li a {
   color: #fff;
+  padding: 15px;
 }
+
 #logo {
   padding: 15px;
   margin-left: 15px;
@@ -28,7 +38,6 @@ ul li a {
   font-weight: bold;
   display: inline-block;
 }
-
 header {
   background-color: #41c7c7;
 
@@ -37,28 +46,47 @@ header {
 }
 
 section#hero {
-  height: 200%;
   background-color: #36adad;
   padding: 2em;
   border-top: 5px solid #2ea0a0;
-
   display: grid;
   grid-template-columns: repeat(2, auto);
 }
+
 #content h1 {
   text-transform: uppercase;
   color: #fffbc5;
 }
+
 #content p {
   color: #fff;
 }
+
 img {
   max-width: 100%;
   background-size: cover;
   margin: 0 auto;
 }
+
 #mountain {
   border-radius: 50%;
   width: 200px;
   height: 200px;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background: #1c9090;
+  color: #fff;
+  padding: 1em;
+}
+.main {
+  grid-area: right;
+  grid-template-rows: 51px fit-content(30%);
+  display: grid;
+}
+
+footer {
+  grid-area: footer;
+  background: lightgray;
 }
